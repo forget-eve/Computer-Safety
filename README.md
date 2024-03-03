@@ -1,6 +1,6 @@
 # 课前须知
 
-> 课程主页：[瀚海教学网](course.ustc.edu.cn)
+> 课程主页：[瀚海教学网](https://course.ustc.edu.cn/portal)
 
 - 成绩组成
   > - [x] 期末考试（闭卷，预计第14周左右）
