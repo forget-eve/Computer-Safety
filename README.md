@@ -225,20 +225,13 @@ $$
 ##### 还原中遇到的问题
 
 $$
-\text{盐 = 氯化钠 = 氯元素 + 钠元素} \newline
-$$
-
-$$
+\text{盐 = 氯化钠 = 氯元素 + 钠元素} \rightarrow 
+\begin{cases}
 \text{氯元素} \rightarrow \text{剧毒} \newline
-$$
-
-$$
 \text{钠元素} \rightarrow \text{剧毒} \newline
+\end{cases} \rightarrow \text{盐} \rightarrow \text{剧毒(????)} \newline
 $$
 
-$$
-\text{盐} \rightarrow \text{剧毒(????)} \newline
-$$
 
 > **说明还原法中由小系统推导大系统性质不一定正确**
 
