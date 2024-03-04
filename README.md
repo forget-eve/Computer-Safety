@@ -1184,7 +1184,7 @@ $$
   > - 鉴别信息的集合A 实体用来证明其身份的特定信息的集合。如Unix的明文口令的集合
   > - 辅助信息的集合C `系统存储` 并且用来证实鉴别信息的信息集合。如Unix的密文口令的集合
   > - 辅助函数的集合F 由鉴别信息产生辅助信息的函数的集合。即， $f \in F，f: A \rightarrow C$ 。如Unix的Hash函数的集合
-  > - 鉴别函数的集合L 验证身份的函数的集合。即，对于 $l \in L，l: A×C \rightarrow \leftbrace true，false \rightbrace$
+  > - 鉴别函数的集合L 验证身份的函数的集合。即，对于 $l \in L,l: A×C \rightarrow \lbrace true,false \rbrace$
   > - 选择函数的集合S 允许实体创建或改变鉴别信息和辅助信息。如创建、修改口令，选择加密算法等
 
 ### 身份认证协议
