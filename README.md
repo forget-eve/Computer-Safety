@@ -3484,7 +3484,7 @@ E-->F
 #### $信任管理 → $UCON_{preA0}模型4
 
 - (1) credentials是工作证集合
-- (2) cert: $S → 2^{credentials}$ ，是用户与工作证的映射关系
+- (2) cert: $S → 2^{credentials}$ ，是用户与工作证的映射关系(以2为底是指是否有工作证两种情况)
 - (3) groupID: $O → 2^{credentials}$ ，是客体资源与工作证的映射关系
 - (4) ATTS(S): {cert}，即主体持有的工作证
 - (5) ATTS(O): {groupID}，即客体资源允许持有特定工作证的用户访问
