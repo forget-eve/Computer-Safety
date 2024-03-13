@@ -3564,7 +3564,7 @@ E-->F
 
 ### 电子商务系统(略)
 
-> [`详见补充论文`](./PDF/UCON在电子商务系统访问控制中的应用.pdf)
+> [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/UCON在电子商务系统访问控制中的应用.pdf)
 
 ### 医疗大数据共享
 
@@ -3585,7 +3585,7 @@ E-->F
   </p>
 </p>
 
-> [`详见补充论文`](./PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
+> [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
 
 #### 零信任
 
@@ -3611,11 +3611,11 @@ E-->F
   </p>
 </p>
 
-> [`详见补充论文`](./PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
+> [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
 
 ##### 基于ZT-UCON的医疗大数据访问控制
 
-> [`详见补充论文`](./PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
+> [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/面向医疗大数据基于零信任的UCON访问控制模型.pdf)
 
 #### 医疗数据共享访问控制流程
 
@@ -3641,11 +3641,11 @@ E-->F
 - [x] SDN
 
 - [x] 身份认证
-  > [`详见补充论文`](./PDF/基于UCON模型的动态风险身份认证方法研究.pdf)
+  > [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/基于UCON模型的动态风险身份认证方法研究.pdf)
 
 
 - [x] 云计算
-  > [`详见补充论文`](./PDF/云环境下基于零信任的访问控制模型研究.pdf)
+  > [`详见补充论文`](https://forget-eve.github.io/Computer-Safety/PDF/云环境下基于零信任的访问控制模型研究.pdf)
 
 - [x] Beyond 5G
  
