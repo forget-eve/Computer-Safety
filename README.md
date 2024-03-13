@@ -3488,8 +3488,8 @@ E-->F
 - (3) groupID: $O → 2^{credentials}$ ，是客体资源与工作证的映射关系
 - (4) ATTS(S): {cert}，即主体持有的工作证
 - (5) ATTS(O): {groupID}，即客体资源允许持有特定工作证的用户访问
-- (6) allowed(s, o, read) ＝> cert(s) $\not = \emptyset$ ，即组织内员工可读组织内的全体客体资源
-- (7) allowed(s, o, write) ＝> (cert(s) $\not = \emptyset$ ) ∧ (groupID(o) ∈ cert(s))，即组织内客体资源只允许某些持有特定工作证的用户修改
+- (6) allowed(s, o, read) ＝> cert(s) $\not = \varnothing$ ，即组织内员工可读组织内的全体客体资源
+- (7) allowed(s, o, write) ＝> (cert(s) $\not = \varnothing$ ) ∧ (groupID(o) ∈ cert(s))，即组织内客体资源只允许某些持有特定工作证的用户修改
 
 ### 数字版权管理
 
