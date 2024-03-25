@@ -5457,9 +5457,9 @@ E-->F
   > - <kbd>username:password:UID:GID:name:homedir:shell</kbd>
 
 - [x] 例如：
-  > - root:x:0:0:root:/root:/bin/bash
-  > - daemon:x:1:1:daemon:/usr/sbin:/bin/sh
-  > - dayin:x:1000:1000:Debian User,,,:/home/dayin:/bin/bash
+  > - root: x :0:0:root:/root:/bin/bash
+  > - daemon: x :1:1:daemon:/usr/sbin:/bin/sh
+  > - dayin: x :1000:1000:Debian User,,,:/home/dayin:/bin/bash
 
 #### 用户账号详情
 
@@ -5474,15 +5474,15 @@ E-->F
 #### /etc/passwd例子
 
 - [x] Some lines from /etc/passwd:
-  > - root:x:0:0:root:/root:/bin/bash
-  > - man:x:6:12:man:/var/cache/man:/bin/sh
-  > - lp:x:7:7:lp:/var/spool/lpd:/bin/sh
-  > - irc:x:39:39:ircd:/var/run/ircd:/bin/sh
-  > - gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
-  > - nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
-  > - dayin:x:1000:1000:Debian User,,,:/home/dayin:/bin/bash
-  > - sshd:x:100:65534::/var/run/sshd:/usr/sbin/nologin
-  > - ftp:x:101:65534::/home/ftp:/bin/false
+  > - root: x :0:0:root:/root:/bin/bash
+  > - man: x :6:12:man:/var/cache/man:/bin/sh
+  > - lp: x :7:7:lp:/var/spool/lpd:/bin/sh
+  > - irc: x :39:39:ircd:/var/run/ircd:/bin/sh
+  > - gnats: x :41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
+  > - nobody: x :65534:65534:nobody:/nonexistent:/bin/sh
+  > - dayin: x :1000:1000:Debian User,,,:/home/dayin:/bin/bash
+  > - sshd: x :100:65534::/var/run/sshd:/usr/sbin/nologin
+  > - ftp: x :101:65534::/home/ftp:/bin/false
 
 ### 口令
 
@@ -5724,6 +5724,9 @@ E-->F
   > - `RUID/RGID` : `继承于父进程` ，通常是登录用户的UID/GID。进程为谁工作？
   > - `EUID/EGID` : `继承于父进程或正在被执行的文件` 。进程拥有的权限与谁相同？
 
+> - 真实 UID 和真实 GID：标识用户的身份，也就是登录用户的 UID 和 GID，可以用id命令查看。
+> - 有效 UID和有效GID：进程用来决定我们对资源的访问权限。一般情况下，有效UID等于实际 UID，有效GID等于实际GID。当设置-用户-ID（SUID）位设置，则有效UID等于文件的所有者的UID，而不是实际UID；同样，如果设置了设置-用户组-ID（SGID）位.则有效GID等于文件所有者的GID，而不是实际GID。
+
 - [x] POSIX兼容版本还预留了一个 `保留(saved) UID/GID`
 
 #### 例子：真实/有效 UID/GID
@@ -5734,6 +5737,13 @@ E-->F
    <span>示例</span>
   </p>
 </p>
+
+> - 进程的Effective User ID (EUID) 和 Effective Group ID (EGID) 是在进程启动时确定的，通常是在调用 exec() 系列函数执行新程序时。这些值可以在进程的整个生命周期内保持不变，除非进程显式地请求修改它们或者通过特权操作修改它们。
+> - EUID 和 EGID 的取值通常是：
+> - 实际用户 ID (UID)：表示进程的拥有者或运行者。通常情况下，当一个用户登录系统时，其 UID 会被分配给用户的进程。
+> - 实际组 ID (GID)：表示进程所属的主组。用户可以属于多个组，但是实际组 ID 通常是用户的主要组。
+> - 有效用户 ID (EUID)：用于权限检查和访问控制。在执行权限检查时，系统将使用 EUID 来确定用户是否具有执行操作所需的权限。通常情况下，EUID 等于实际用户 ID (UID)，但当进程以特权方式运行时，EUID 可能会被修改为其他值。
+> - 有效组 ID (EGID)：类似于 EUID，用于权限检查和访问控制，但是是针对组的。系统使用 EGID 来确定用户所属的组是否具有执行操作所需的权限。通常情况下，EGID 等于实际组 ID (GID)，但是也可能在某些情况下被修改。
 
 ## 客体（基于ACL的访问控制机制）
 
@@ -5896,8 +5906,8 @@ E-->F
   > - Owner, Group, Any: Read/Write/Exec
 
 - [x] 三个附加位
-  > - 设置UID为文件属主的SUID
-  > - 设置GID为文件属组的SGID
+  > - 设置UID为文件属主的SUID(set UID)
+  > - 设置GID为文件属组的SGID(set GID)
   > - 粘滞位(Sticky bit，防删除)
 
 ##### 四字符的八进制数
@@ -5909,6 +5919,8 @@ E-->F
   </p>
 </p>
 
+> - 当SUID为1时，说明会对用户进行置位，此时会将EUID变为进程的UID。其他情况同理。
+> - 上面转化表的后三位表示属主、属组、其余的权限，每一位可以转化为3位二进制数分别代表读写运行的权限，同时第一位为三个附加位的值，也就是上述每一位都是一个八进制数。可以进行推理。
 > - **问题：四字符的八进制数，超过文件许可(例如 `rw-r--r--` )的显示位数了！**
 
 ##### 文件许可
