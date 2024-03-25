@@ -5696,7 +5696,7 @@ E-->F
 > - 问题：进程 `proc1` 的运行将显示什么信息？
 > - 结果： `China -- England -- Australia`
 > -  `exec` 换成 `fork` 呢？
-> - `China -- England -- Australia -- Canada -- “America`
+> - `China -- England -- Australia -- Canada -- America`
 
 ##### APUE: exec
 
